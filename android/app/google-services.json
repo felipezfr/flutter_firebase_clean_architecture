@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "292973057917",
+    "project_id": "flutterqueueapp",
+    "storage_bucket": "flutterqueueapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292973057917:android:3eb6dac2440b29225e5e14",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_clean_architecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292973057917-rc3gb8c7v16rkuhbocebav9ihl0bgafv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPjJTN5ypzJA8REuRmYN50ABgQUrL_oRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292973057917-rc3gb8c7v16rkuhbocebav9ihl0bgafv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
