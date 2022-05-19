@@ -5,10 +5,10 @@ abstract class IGetAllQueues {
   Stream<List<QueueEntity>> call();
 }
 
-class getAllQueues implements IGetAllQueues {
+class GetAllQueues implements IGetAllQueues {
   final IQueueRepository repository;
 
-  getAllQueues(this.repository);
+  GetAllQueues(this.repository);
 
   @override
   Stream<List<QueueEntity>> call() {

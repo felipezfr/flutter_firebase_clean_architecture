@@ -28,7 +28,7 @@ void main() {
       ]),
     );
 
-    final repostory = QueueRepostory(datasource: datasource);
+    final repostory = QueueRepostory(datasource);
     final result = repostory.getAllQueues();
 
     expect(result, emits(isA<List<QueueEntity>>()));

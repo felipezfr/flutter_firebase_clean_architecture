@@ -5,9 +5,9 @@ import 'package:flutter_firebase_clean_architecture/src/queue/infra/datasource/q
 
 class QueueRepostory implements IQueueRepository {
   final IQueueDatasource datasource;
-  QueueRepostory({
-    required this.datasource,
-  });
+  QueueRepostory(
+    this.datasource,
+  );
 
   @override
   Stream<List<QueueEntity>> getAllQueues() {
