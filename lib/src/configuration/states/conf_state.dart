@@ -7,9 +7,9 @@ class EmptyConfState implements ConfState {}
 class LoadingConfState implements ConfState {}
 
 class LoadedConfState implements ConfState {
-  final List<QueueEntity> queue;
+  final List<QueueEntity> queues;
 
-  LoadedConfState(this.queue);
+  LoadedConfState(this.queues);
 }
 
 class ExceptionConfState implements ConfState {

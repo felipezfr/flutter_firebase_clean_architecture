@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/repositories/queue_repository.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/get_all_queues.dart';
@@ -9,7 +7,7 @@ import 'package:flutter_firebase_clean_architecture/src/queue/infra/repositores/
 import 'package:provider/provider.dart';
 
 final queueModule = [
-  Provider.value(value: FirebaseFirestore.instance),
+  Provider<FirebaseFirestore>.value(value: FirebaseFirestore.instance),
   Provider<IQueueDatasource>(
       create: (context) => QueueFirestoreDatasource(context.read())),
   Provider<IQueueRepository>(
