@@ -13,6 +13,13 @@ class QueueFirestoreDatasource implements IQueueDatasource {
     return snapshot.map((event) => event.docs).map(_convert);
   }
 
+  @override
+  Future<void> addQueue(Map<String, dynamic> map) async {
+    final ref = firestore.collection('queue');
+    map.remove('id');
+    ref.add(map);
+  }
+
   List<Map> _convert(List<QueryDocumentSnapshot<Map<String, dynamic>>> docs) {
     return docs
         .map((document) => {
@@ -20,5 +27,12 @@ class QueueFirestoreDatasource implements IQueueDatasource {
               ...document.data(),
             })
         .toList();
+  }
+
+  @override
+  Future<void> removeQueue(String id) async {
+    final ref = firestore.collection('queue');
+
+    await ref.doc(id).delete();
   }
 }

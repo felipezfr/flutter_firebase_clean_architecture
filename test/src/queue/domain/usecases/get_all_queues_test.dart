@@ -7,7 +7,7 @@ import '../../../../mocks/mocks.dart';
 
 void main() {
   test('deve retornar uma lista de QueuesEntity', () {
-    final repository = GetAllQueuesMock();
+    final repository = QueueRepositoryMock();
     final entity = QueueEntityMock();
 
     when(() => repository.getAllQueues())

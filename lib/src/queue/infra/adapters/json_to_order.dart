@@ -10,4 +10,13 @@ class JsonToOrder {
           .firstWhere((element) => element.name == json['status']),
     );
   }
+
+  static Map<String, dynamic> toMap(Order order) {
+    return {
+      'id': order.id,
+      'position': order.position,
+      'timestamp': order.timestamp.toIso8601String(),
+      'status': order.status.name,
+    };
+  }
 }
