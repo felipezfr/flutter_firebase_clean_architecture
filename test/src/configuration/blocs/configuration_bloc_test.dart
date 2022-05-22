@@ -12,10 +12,12 @@ void main() {
       build: () {
         final getAllQueuesUsecase = IGetAllQueuesMock();
         final addNewQueuesUsecase = IAddNewQueuesMock();
+        final removeQueuesUsecase = IRemoveQueuesMock();
 
         when(() => getAllQueuesUsecase.call())
             .thenAnswer((_) => Stream.value([]));
-        return ConfigurationBloc(getAllQueuesUsecase, addNewQueuesUsecase);
+        return ConfigurationBloc(
+            getAllQueuesUsecase, addNewQueuesUsecase, removeQueuesUsecase);
       },
       act: (bloc) => bloc.add(FetchQueues()),
       expect: () => [

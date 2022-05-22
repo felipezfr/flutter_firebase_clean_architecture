@@ -98,7 +98,7 @@ class _ConfigurationPageState extends State<ConfigurationPage>
     final bloc = context.watch<ConfigurationBloc>();
     final state = bloc.state;
 
-    Widget list = Container();
+    // Widget list = Container();
 
     return Scaffold(
       appBar: AppBar(title: const Text("Configuracoes")),

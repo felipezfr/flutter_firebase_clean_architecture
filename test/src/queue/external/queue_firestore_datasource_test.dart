@@ -1,7 +1,5 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/external/queue_firestore_datasource.dart';
-import 'package:flutter_firebase_clean_architecture/src/queue/infra/adapters/json_to_order.dart';
-import 'package:flutter_firebase_clean_architecture/src/queue/infra/adapters/json_to_queue.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

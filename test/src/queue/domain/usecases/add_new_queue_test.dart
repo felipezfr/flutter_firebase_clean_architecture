@@ -1,11 +1,6 @@
-import 'dart:ffi';
-
-import 'package:flutter_firebase_clean_architecture/src/queue/domain/entities/queue_entity.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/add_new_queue.dart';
-import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/get_all_queues.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-
 import '../../../../mocks/mocks.dart';
 
 void main() {
@@ -17,7 +12,7 @@ void main() {
 
     final usecase = AddNewQueue(repository);
 
-    final result = usecase.call(queue);
+    // final result = usecase.call(queue);
 
     //testar Future
     expect(usecase.call(queue), completes);

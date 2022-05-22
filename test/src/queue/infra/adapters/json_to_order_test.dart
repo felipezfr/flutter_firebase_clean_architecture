@@ -2,8 +2,6 @@ import 'package:flutter_firebase_clean_architecture/src/queue/domain/value_objec
 import 'package:flutter_firebase_clean_architecture/src/queue/infra/adapters/json_to_order.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../mocks/mocks.dart';
-
 void main() {
   test(
     'deve converter um map em um objeto do tipo Order',
