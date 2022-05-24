@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_clean_architecture/src/configuration/blocs/configuration_bloc.dart';
 import 'package:flutter_firebase_clean_architecture/src/configuration/events/conf_event.dart';
-import 'package:flutter_firebase_clean_architecture/src/configuration/mondels/queue_model.dart';
+import 'package:flutter_firebase_clean_architecture/src/configuration/models/queue_model.dart';
 import 'package:flutter_firebase_clean_architecture/src/configuration/states/conf_state.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +26,7 @@ class _ConfigurationPageState extends State<ConfigurationPage>
   @override
   void completeState() {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      context.read<ConfigurationBloc>().add(FetchQueues());
+      context.read<ConfigurationBloc>().add(FetchQueuesEvent());
     });
   }
 
@@ -168,16 +168,19 @@ class _ConfigurationPageState extends State<ConfigurationPage>
                   child: Text(
                     "CONTROLE",
                     style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey),
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 19, vertical: 0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      bloc.add(RemoveAllOrdersEvent());
+                    },
                     child: const Text("Reiniciar filas"),
                     style: ElevatedButton.styleFrom(primary: Colors.black),
                   ),

@@ -56,4 +56,49 @@ void main() {
     expect(queues.docs.first['title'], 'Teste Queue');
     expect(queues.docs.first.data().containsKey('id'), false);
   });
+
+  test('deve remover a propriedade orders de todos os docs', () async {
+    final firestore = FakeFirebaseFirestore();
+    final datasource = QueueFirestoreDatasource(firestore);
+
+    final queue1 = {
+      'id': 'abcder',
+      'title': 'Teste Queue 1',
+      'abbr': 'Tst 1',
+      'priority': 1,
+      'orders': [
+        {
+          'id': 'abcd123',
+          'position': 2,
+          'timestamp': '2022-05-23',
+          'status': 'waiting'
+        }
+      ]
+    };
+
+    final queue2 = {
+      'id': '123123',
+      'title': 'Teste 2',
+      'abbr': 'Tst 2',
+      'priority': 2,
+      'orders': [
+        {
+          'id': '543123',
+          'position': 1,
+          'timestamp': '2022-05-22',
+          'status': 'attending'
+        }
+      ]
+    };
+
+    await datasource.addQueue(queue1);
+    await datasource.addQueue(queue2);
+    await datasource.removeAllOrders();
+
+    final ref = firestore.collection('queue');
+    final queues = await ref.get();
+
+    expect(queues.docs.first.data().containsKey('orders'), false);
+    expect(queues.docs.last.data().containsKey('orders'), false);
+  });
 }

@@ -35,4 +35,17 @@ class QueueFirestoreDatasource implements IQueueDatasource {
 
     await ref.doc(id).delete();
   }
+
+  @override
+  Future<void> removeAllOrders() async {
+    final ref = firestore.collection('queue');
+
+    final snapshot = await ref.get();
+
+    for (var doc in snapshot.docs) {
+      final map = doc.data();
+      map.remove('orders');
+      doc.reference.set(map);
+    }
+  }
 }

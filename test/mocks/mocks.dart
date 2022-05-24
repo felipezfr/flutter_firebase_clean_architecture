@@ -2,6 +2,7 @@ import 'package:flutter_firebase_clean_architecture/src/queue/domain/entities/qu
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/repositories/queue_repository.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/add_new_queue.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/get_all_queues.dart';
+import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/remove_all_orders.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/domain/usecases/remove_queue.dart';
 import 'package:flutter_firebase_clean_architecture/src/queue/infra/datasource/queue_datasource.dart';
 import 'package:mocktail/mocktail.dart';
@@ -18,3 +19,5 @@ class IGetAllQueuesMock extends Mock implements IGetAllQueues {}
 class IAddNewQueuesMock extends Mock implements IAddNewQueue {}
 
 class IRemoveQueuesMock extends Mock implements IRemoveQueue {}
+
+class IRemoveAllOrdersMock extends Mock implements IRemoveAllOrders {}

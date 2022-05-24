@@ -30,4 +30,9 @@ class QueueRepostory implements IQueueRepository {
   List<QueueEntity> _convert(List<Map> list) {
     return list.map(JsonToQueue.fromMap).toList();
   }
+
+  @override
+  Future<void> removeAllOrders() async {
+    await datasource.removeAllOrders();
+  }
 }
