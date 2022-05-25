@@ -6,6 +6,8 @@ final checkinModule = [
   BlocProvider(
     create: (context) => CheckinBloc(
       context.read(),
+      context.read(),
+      context.read(),
     ),
   )
 ];

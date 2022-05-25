@@ -8,4 +8,6 @@ abstract class IQueueRepository {
   Future<void> removeQueue(String id);
 
   Future<void> removeAllOrders();
+
+  Future<void> updateQueue(QueueEntity queue);
 }

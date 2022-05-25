@@ -101,4 +101,42 @@ void main() {
     expect(queues.docs.first.data().containsKey('orders'), false);
     expect(queues.docs.last.data().containsKey('orders'), false);
   });
+
+  test('deve atualizar a queue', () async {
+    final firestore = FakeFirebaseFirestore();
+    final datasource = QueueFirestoreDatasource(firestore);
+
+    final queue1 = {
+      'id': 'abcder',
+      'title': 'Teste Queue 1',
+      'abbr': 'Tst 1',
+      'priority': 1,
+      'orders': []
+    };
+
+    final queue2 = {
+      'id': 'abcder',
+      'title': 'Teste Queue 2',
+      'abbr': 'Tst 2',
+      'priority': 5,
+      'orders': [
+        {
+          'id': '0001',
+          'position': 1,
+          'timestamp': '2022-05-22',
+          'status': 'attending'
+        }
+      ]
+    };
+
+    await datasource.addQueue(queue1);
+    await datasource.updateQueue(queue2);
+
+    final ref = firestore.collection('queue');
+    final queue = await ref.doc('abcder').get();
+
+    expect(queue.data()?.containsKey('orders'), true);
+    expect((queue.data()?['orders'] as List).length, 1);
+    expect(queue.data()?['priority'], 5);
+  });
 }

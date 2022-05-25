@@ -48,4 +48,12 @@ class QueueFirestoreDatasource implements IQueueDatasource {
       doc.reference.set(map);
     }
   }
+
+  @override
+  Future<void> updateQueue(Map<String, dynamic> map) async {
+    final ref = firestore.collection('queue');
+    final doc = ref.doc(map['id']);
+
+    await doc.set(map);
+  }
 }
